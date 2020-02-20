@@ -10,6 +10,7 @@ def test_get_status():
     r = requests.get(TeD.url_() + "/get/status")
     AssertThat(r.status_code).IsEqualTo(200)
     print(r.status_code)
+    # validate(instance=r.json(), schema=schema2)
     # print(r.json())
 
 
@@ -53,5 +54,6 @@ def test_get_dictionary_unload_unlock_reasons():
 def test_get_neighbors():
     r = requests.get(TeD.url_() + "/get/neighbors")
     AssertThat(r.status_code).IsEqualTo(200)
+    # AssertThat(r.json()["result"]["C020"]).ContainsItem(["bunker_percentage", 0])
     print(r.json())
     print(r.status_code)

@@ -156,7 +156,6 @@ schema2 = {
                     }
                 },
                 'availability': {
-                    'type': 'object',
                     'properties': {
                         'required': ['SSPTI', 'WiFi', 'GPS', 'GSM'],
                         'SSPTI': {'type': 'boolean'},

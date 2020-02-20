@@ -11,3 +11,6 @@ class TestData:
 
     def password_(self):
         return config.get("password")
+
+    def headers(self):
+        return {"Content-Type": "application/json"}
