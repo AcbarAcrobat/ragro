@@ -1,0 +1,10 @@
+**/support/__pycache__
+**/tests/__pycache__
+**/.idea
+**/*.log
+**/venv
+**/.pytest_cache
+**/fixture/.pytest_cache
+**/tests/.pytest_cache
+**/config.yaml
+**/__pycache__
