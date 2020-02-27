@@ -8,3 +8,4 @@ urllib3
 pytruth
 paho-mqtt
 colorlog
+allure-pytest
