@@ -1,2 +1,0 @@
-{'result': {'C020': [{'state': 3, 'distance': None, 'device_id': 'AC35EE2644B0', 'driver': {'card_uid': '101009344403460', 'sap_id': '00013981', 'stat': '1', 'ver': '1561521755', 'fio': 'Черкашин Николай Викторович', 'phone': '79066088800'}, 'host': '192.168.201.11:9194', 'reg_num': '7997ЕЕ31', 'brand': 'ДОН 1500Б', 'guest_device_id': None, 'type': 'C020', 'bunker_percentage': 100}]}}
-200
