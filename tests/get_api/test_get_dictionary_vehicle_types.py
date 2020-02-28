@@ -5,7 +5,10 @@ from jsonschema import validate
 from support.schema.dictionary_vehicle_types_schema import schema
 
 from support.testdata import TestData
+import logging
 
+
+LOGGER = logging.getLogger(__name__)
 T = TestData()
 
 
@@ -25,5 +28,5 @@ def test_get_dictionary_vehicle_types():
         AssertThat(r.json()["result"]).ContainsItem("BEETROOT_TRANSPORTER", "C070")
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
-    print(r.status_code)
-    print(r.json())
+    LOGGER.info(r.status_code)
+    LOGGER.info(r.json())

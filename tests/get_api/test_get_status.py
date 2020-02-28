@@ -4,7 +4,10 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 from jsonschema import validate
 from support.schema.get_status_schema import schema
+import logging
 
+
+LOGGER = logging.getLogger(__name__)
 T = TestData()
 
 
@@ -19,10 +22,9 @@ def test_get_status():
     with allure.step("Assert Contains Item"):
         AssertThat(r.json()["result"]).ContainsItem("RFID_guest_state", 0)
         AssertThat(r.json()["result"]).ContainsItem("RFID_guest_unload_request", False)
-        AssertThat(r.json()["result"]).ContainsItem("RFID_driver_state", 3)
         AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644A7")
         AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("rotate", False)
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
-    print(r.status_code)
-    # print(r.json())
+    LOGGER.info(r.status_code)
+    LOGGER.info(r.json())

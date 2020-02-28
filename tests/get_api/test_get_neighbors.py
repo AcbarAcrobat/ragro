@@ -2,8 +2,10 @@ import allure
 import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
+import logging
 
 
+LOGGER = logging.getLogger(__name__)
 TeD = TestData()
 
 
@@ -18,5 +20,5 @@ def test_get_neighbors():
     with allure.step("Assert contains items in json response"):
         AssertThat(r.json()["result"]["C020"][0]).ContainsAnyIn(["bunker_percentage", 0])
         AssertThat(r.json()["result"]["C020"][0]).ContainsAnyIn(["reg_num", "7997ЕЕ31"])
-    print(r.json())
-    print(r.status_code)
+    LOGGER.info(r.json())
+    LOGGER.info(r.status_code)

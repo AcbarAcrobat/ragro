@@ -4,8 +4,10 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 from jsonschema import validate
 from support.schema.get_dictionary_unload_unlock_reasons import schema
+import logging
 
 
+LOGGER = logging.getLogger(__name__)
 T = TestData()
 
 
@@ -24,4 +26,5 @@ def test_get_dictionary_unload_unlock_reasons():
         AssertThat(r.json()["result"]).ContainsItem("RFID", 1)
         AssertThat(r.json()["result"]).ContainsItem("IDLE_ROTATE", 4)
         AssertThat(r.json()["result"]).ContainsItem("NETWORK", 2)
-    print(r.status_code)
+    LOGGER.info(r.status_code)
+    LOGGER.info(r.json())
