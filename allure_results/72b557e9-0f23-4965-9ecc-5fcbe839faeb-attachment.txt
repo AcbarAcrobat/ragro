@@ -1,0 +1,1 @@
+[32mINFO    [0m test_get_dictionary_rfid_states:test_get_dictionary_rfid_states.py:31 {'result': {'NO_CARD': 1, 'BAD_CARD': 2, 'AUTH_OK': 3, 'REMOVE_CARD': -1, 'NO_CONNECTION': 0}}

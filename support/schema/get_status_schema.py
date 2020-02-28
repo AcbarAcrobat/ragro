@@ -9,7 +9,7 @@ schema = {
             'required': ['RFID_driver_state', 'RFID_guest_state', 'device_id',
                          'neighbors_count', 'RFID_guest_unload_request', 'state',
                          'mechanization', 'vehicle',
-                         'availability', 'driver'],
+                         'availability'],
             'additionalProperties': False,
             'properties': {
                 'RFID_driver_state':         {  'type': 'integer'  },
