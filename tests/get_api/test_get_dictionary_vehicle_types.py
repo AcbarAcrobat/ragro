@@ -30,5 +30,3 @@ def test_get_dictionary_vehicle_types():
         AssertThat(r.json()["result"]).ContainsItem("BEETROOT_TRANSPORTER", "C070")
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
-    print(r.status_code)
-    print(r.json())

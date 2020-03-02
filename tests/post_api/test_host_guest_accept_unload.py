@@ -1,9 +1,7 @@
+import logging
 import allure
 import requests
-from truth.truth import AssertThat
 from support.testdata import TestData
-import logging
-
 
 T = TestData()
 LOGGER = logging.getLogger(__name__)
