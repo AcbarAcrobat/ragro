@@ -6,9 +6,11 @@ from truth.truth import AssertThat
 from jsonschema import validate
 from support.schema.dictionary_vehicle_types_schema import schema
 from support.testdata import TestData
+import logging
 
-T = TestData()
+
 LOGGER = logging.getLogger(__name__)
+T = TestData()
 
 
 @allure.parent_suite("GET request")

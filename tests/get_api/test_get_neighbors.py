@@ -4,8 +4,10 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
 
+
 T = TestData()
 LOGGER = logging.getLogger(__name__)
+
 
 
 @allure.parent_suite("GET request")
