@@ -17,11 +17,11 @@ LOGGER = logging.getLogger(__name__)
 def test_get_dictionary_rfid_states():
     with allure.step("Send request to the server"):
         r = requests.get(T.url_() + "/get/dictionary/rfid_states")
-    with allure.step("Assert status code is 200"):
-        AssertThat(r.status_code).IsEqualTo(200)
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+    with allure.step("Assert status code is 200"):
+        AssertThat(r.status_code).IsEqualTo(200)
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
     with allure.step("Assert Contains Items"):

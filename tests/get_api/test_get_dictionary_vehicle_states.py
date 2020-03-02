@@ -1,3 +1,4 @@
+import logging
 import allure
 import requests
 from truth.truth import AssertThat
@@ -7,6 +8,7 @@ from support.testdata import TestData
 
 
 T = TestData()
+LOGGER = logging.getLogger(__name__)
 
 
 @allure.parent_suite("GET request")
@@ -15,6 +17,9 @@ T = TestData()
 def test_get_dictionary_vehicle_states():
     with allure.step("Send request to the server"):
         r = requests.get(T.url_() + "/get/dictionary/vehicle_states")
+    with allure.step("LOGGER get info"):
+        LOGGER.info(r.json())
+        LOGGER.info(r.status_code)
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
     with allure.step("Validate server response according to our scheme"):
@@ -25,4 +30,3 @@ def test_get_dictionary_vehicle_states():
         AssertThat(r.json()["result"]).ContainsItem("WAITING_FOR_SECURITY", -3)
         AssertThat(r.json()["result"]).ContainsItem("NO_IGNITION", -2)
         AssertThat(r.json()["result"]).ContainsItem("HOST_START_UNLOAD", 2)
-    print(r.status_code)

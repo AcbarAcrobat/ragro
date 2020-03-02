@@ -4,9 +4,11 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 from jsonschema import validate
 from support.schema.get_dictionary_unload_unlock_reasons import schema
+import logging
 
 
 T = TestData()
+LOGGER = logging.getLogger(__name__)
 
 
 @allure.parent_suite("GET request")
@@ -15,6 +17,9 @@ T = TestData()
 def test_get_dictionary_unload_unlock_reasons():
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url_() + "/get/dictionary/unload_unlock_reasons")
+    with allure.step("LOGGER get info"):
+        LOGGER.info(r.json())
+        LOGGER.info(r.status_code)
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
     with allure.step("Validate server response according to our scheme"):
@@ -24,4 +29,3 @@ def test_get_dictionary_unload_unlock_reasons():
         AssertThat(r.json()["result"]).ContainsItem("RFID", 1)
         AssertThat(r.json()["result"]).ContainsItem("IDLE_ROTATE", 4)
         AssertThat(r.json()["result"]).ContainsItem("NETWORK", 2)
-    print(r.status_code)
