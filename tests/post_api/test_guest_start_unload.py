@@ -4,7 +4,7 @@ from support.testdata import TestData
 import logging
 
 
-TeD = TestData()
+T = TestData()
 LOGGER = logging.getLogger(__name__)
 
 
