@@ -17,7 +17,7 @@ T = TestData()
 @allure.title("Positive get request")
 def test_get_dictionary_vehicle_states():
     with allure.step("Send request to the server"):
-        r = requests.get(T.url_() + "/get/dictionary/vehicle_states")
+        r = requests.get(T.url() + "/get/dictionary/vehicle_states")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

@@ -12,5 +12,5 @@
 **/fixture/.pytest_cache
 **/**/tests/.pytest_cache
 **/tests/.pytest_cache
-**/config.yaml
+*.yml
 **/__pycache__

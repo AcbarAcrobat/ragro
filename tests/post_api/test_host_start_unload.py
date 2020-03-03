@@ -13,7 +13,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive post request")
 def test_host_start_unload():
     with allure.step("Send request to the server"):
-        r = requests.post(T.url_() + "/host/start_unload", headers=T.headers(),
+        r = requests.post(T.url() + "/host/start_unload", headers=T.headers(),
                           json={
                               "device_id": "11",
                               "rfid": "12345",

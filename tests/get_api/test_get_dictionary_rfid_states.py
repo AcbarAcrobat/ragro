@@ -17,7 +17,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive get request")
 def test_get_dictionary_rfid_states():
     with allure.step("Send request to the server"):
-        r = requests.get(T.url_() + "/get/dictionary/rfid_states")
+        r = requests.get(T.url() + "/get/dictionary/rfid_states")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

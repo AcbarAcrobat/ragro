@@ -14,7 +14,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive post request")
 def test_post_guest_accept_unload():
     with allure.step("Send request to the server"):
-        r = requests.post(T.url_() + "/guest/accept_unload", headers=T.headers(),
+        r = requests.post(T.url() + "/guest/accept_unload", headers=T.headers(),
                           json={"device_id": "15"})
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
