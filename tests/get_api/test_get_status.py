@@ -6,6 +6,7 @@ from jsonschema import validate
 from support.schema.get_status_schema import schema
 import logging
 
+
 T = TestData()
 LOGGER = logging.getLogger(__name__)
 

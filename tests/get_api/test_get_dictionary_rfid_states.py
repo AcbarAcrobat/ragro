@@ -7,6 +7,7 @@ from jsonschema import validate
 import logging
 
 
+LOGGER = logging.getLogger(__name__)
 T = TestData()
 LOGGER = logging.getLogger(__name__)
 
@@ -29,4 +30,3 @@ def test_get_dictionary_rfid_states():
         AssertThat(r.json()["result"]).ContainsItem("AUTH_OK", 3)
         AssertThat(r.json()["result"]).ContainsItem("NO_CONNECTION", 0)
         AssertThat(r.json()["result"]).ContainsItem("REMOVE_CARD", -1)
-        AssertThat(r.json()["result"]).ContainsItem("NO_CARD", 1)
