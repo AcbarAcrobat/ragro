@@ -11,5 +11,5 @@ LOGGER = logging.getLogger(__name__)
 @allure.sub_suite("/host/guest/accept_unload")
 @allure.title("Positive post request")
 def test_host_guest_accept_unload():
-    r = requests.post((T.url_() + "/host/guest/accept_unload"), headers=T.headers())
+    r = requests.post((T.url() + "/host/guest/accept_unload"), headers=T.headers())
     pass

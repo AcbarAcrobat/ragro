@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive get request")
 def test_get_status():
     with allure.step("Send GET request to the server"):
-        r = requests.get(T.url_() + "/get/status")
+        r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

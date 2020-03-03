@@ -3,7 +3,7 @@ from support import config
 
 class TestData:
 
-    def url_(self):
+    def url(self):
         return config.get("url")
 
     def username_(self):
