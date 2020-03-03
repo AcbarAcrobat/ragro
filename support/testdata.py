@@ -3,6 +3,9 @@ from support import config
 
 class TestData:
 
+    def murl(self):
+        return config.get("murl")
+
     def url(self):
         return config.get("url")
 
