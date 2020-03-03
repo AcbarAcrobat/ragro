@@ -9,7 +9,6 @@ T = TestData()
 LOGGER = logging.getLogger(__name__)
 
 
-
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/neighbors")
 @allure.title("Positive get request")

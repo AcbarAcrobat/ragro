@@ -7,7 +7,6 @@ from jsonschema import validate
 import logging
 
 
-LOGGER = logging.getLogger(__name__)
 T = TestData()
 LOGGER = logging.getLogger(__name__)
 
