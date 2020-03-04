@@ -5,7 +5,7 @@ from support.testdata import TestData
 T = TestData()
 
 
-def example(ename, etype, evalue):
+def req(ename, etype, evalue):
     host = T.murl()
     main_path = '/devices/vehicle/controls/'
     # need to be sent if first msg for entity. Wont break anything if will be send all the time
