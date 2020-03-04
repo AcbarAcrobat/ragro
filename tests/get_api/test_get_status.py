@@ -26,13 +26,9 @@ def test_get_status():
                                                                              "3": True,
                                                                              "4": True,
                                                                              "5": False}))
-        mqtt.req(ename="ignition", etype="switch", evalue="1")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
-        # mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
+        mqtt.req(ename="loader_rotate", etype="switch", evalue="1")
+        mqtt.req(ename="unloader_arm", etype="switch", evalue="1")
+        mqtt.req(ename="unloader_bypass", etype="switch", evalue="0")
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
@@ -51,5 +47,6 @@ def test_get_status():
                                                                                          '4': True,
                                                                                          '5': False})
         AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644DA")
-    #     AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644A7")
-    #     AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("rotate", False)
+        AssertThat(r.json()["result"]["mechanization"]["reaper"]).ContainsItem("rotate", True)
+        AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", False)
+        AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("bypass", False)
