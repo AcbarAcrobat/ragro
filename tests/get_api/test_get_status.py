@@ -1,10 +1,9 @@
+import time
 import json
 import requests
 import allure
 from truth.truth import AssertThat
 from support.testdata import TestData
-from jsonschema import validate
-from support.schema.get_status_schema import schema
 import logging
 import tests.mqtt.example as mqtt
 
@@ -27,8 +26,10 @@ def test_get_status():
                                                                              "4": True,
                                                                              "5": False}))
         mqtt.req(ename="loader_rotate", etype="switch", evalue="1")
-        mqtt.req(ename="unloader_arm", etype="switch", evalue="1")
+        mqtt.req(ename="unloader_arm", etype="switch", evalue="0")
         mqtt.req(ename="unloader_bypass", etype="switch", evalue="0")
+        mqtt.req(ename="unloader_rotate", etype="switch", evalue="0")
+        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
@@ -48,5 +49,6 @@ def test_get_status():
                                                                                          '5': False})
         AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644DA")
         AssertThat(r.json()["result"]["mechanization"]["reaper"]).ContainsItem("rotate", True)
-        AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", False)
+        AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", True)
         AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("bypass", False)
+        AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("rotate", False)
