@@ -1,3 +1,4 @@
+import time
 import requests
 import allure
 from truth.truth import AssertThat
@@ -19,6 +20,7 @@ def test_case_bunker_sap_id():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="BUNKER_SAP_ID", etype="text", evalue='🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸')
         # we wait sap_id in response
+        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
