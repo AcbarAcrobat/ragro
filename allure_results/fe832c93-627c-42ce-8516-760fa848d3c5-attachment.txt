@@ -1,2 +1,0 @@
-[32mINFO    [0m test_post_guest_accept_unload:test_post_guest_accept_unload.py:20 {'result': {'done': False}}
-[32mINFO    [0m test_post_guest_accept_unload:test_post_guest_accept_unload.py:21 200

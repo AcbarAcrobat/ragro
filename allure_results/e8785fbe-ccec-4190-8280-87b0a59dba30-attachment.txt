@@ -1,2 +1,0 @@
-[32mINFO    [0m test_host_search_start_unload:test_host_search_start_unload.py:19 {'result': {'done': False}}
-[32mINFO    [0m test_host_search_start_unload:test_host_search_start_unload.py:20 200

@@ -1,2 +1,0 @@
-[32mINFO    [0m test_get_dictionary_unload_unlock_reasons:test_get_dictionary_unload_unlock_reasons.py:21 {'result': {'KAGAT': 3, 'NETWORK': 2, 'RFID': 1, 'IDLE_ROTATE': 4}}
-[32mINFO    [0m test_get_dictionary_unload_unlock_reasons:test_get_dictionary_unload_unlock_reasons.py:22 200

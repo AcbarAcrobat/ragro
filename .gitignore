@@ -13,4 +13,5 @@
 **/**/tests/.pytest_cache
 **/tests/.pytest_cache
 *.yml
-**/__pycache__
+**/__pycache_
+**/allure_results

@@ -1,2 +1,0 @@
-[32mINFO    [0m test_get_dictionary_vehicle_states:test_get_dictionary_vehicle_states.py:22 {'result': {'GUEST_START_UNLOAD': 6, 'HOST_ACCEPT_UNLOAD': 1, 'HOST_START_UNLOAD': 2, 'HOST_SEARCH_UNLOAD_PERSONALLY': 4, 'WAITING_FOR_INIT_END': -4, 'DEFAULT': 0, 'NO_DRIVER': -1, 'GUEST_ACCEPT_UNLOAD': 5, 'IDLE_ROTATE': 7, 'NO_IGNITION': -2, 'HOST_SEARCH_UNLOAD': 3, 'TURN_OFF': -5, 'WAITING_FOR_SECURITY': -3}}
-[32mINFO    [0m test_get_dictionary_vehicle_states:test_get_dictionary_vehicle_states.py:23 200
