@@ -1,5 +1,8 @@
 **/support/__pycache__
 **/tests/__pycache__
+**/tests/get_api/__pycache__
+**/tests/mqtt/__pycache__
+**/tests/post_api/__pycache__
 **/.idea
 **/*.log
 **/venv
@@ -15,4 +18,4 @@
 *.yml
 **/__pycache_
 allure_results
-*/__pycache__
+__pycache__
