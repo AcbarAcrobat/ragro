@@ -1,5 +1,8 @@
 import sys
 import paho.mqtt.client as mqtt
+from support.testdata import TestData
+
+T = TestData()
 
 
 # The callback for when the client receives a CONNACK response from the server.
@@ -17,7 +20,7 @@ def on_message(client, userdata, msg):
 
 
 # host = str(sys.argv[1])
-host = "192.168.0.85"
+host = T.url()
 client = mqtt.Client()
 client.on_connect = on_connect
 client.on_message = on_message
