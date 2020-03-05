@@ -1,0 +1,2 @@
+[32mINFO    [0m test_get_dictionary_vehicle_types:test_get_dictionary_vehicle_types.py:21 {'result': {'BEETROOT_TRANSPORTER': 'C070', 'HARVESTER': 'C020', 'REFUELLER': 'T090', 'TRANSPORTER': 'C010', 'BEETROOT_HARVESTER': 'C030'}}
+[32mINFO    [0m test_get_dictionary_vehicle_types:test_get_dictionary_vehicle_types.py:22 200

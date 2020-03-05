@@ -9,6 +9,9 @@ class TestData:
     def url(self):
         return config.get("url")
 
+    def url85(self):
+        return config.get("url85")
+
     def username_(self):
         return config.get("username")
 

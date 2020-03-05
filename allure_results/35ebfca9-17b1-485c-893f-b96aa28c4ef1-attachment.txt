@@ -1,0 +1,2 @@
+[32mINFO    [0m test_host_free:test_host_free.py:19 {'result': {'done': False}}
+[32mINFO    [0m test_host_free:test_host_free.py:20 200

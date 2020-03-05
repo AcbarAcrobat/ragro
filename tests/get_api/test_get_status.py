@@ -5,18 +5,20 @@ import allure
 from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
-import tests.mqtt.example as mqtt
+import tests.mqtt.send_data as mqtt
 
 
 T = TestData()
 LOGGER = logging.getLogger(__name__)
 
 
+@allure.feature("Test case check biseness logic")
+@allure.story("Send to mqtt variable and wait response")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
 def test_get_status():
-    with allure.step("Send requests for MQTT"):
+    with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="bunker_level", etype="value", evalue="12589")
         mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644DA")
         mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": 777, "units": "KG"}))
@@ -29,6 +31,8 @@ def test_get_status():
         mqtt.req(ename="unloader_arm", etype="switch", evalue="0")
         mqtt.req(ename="unloader_bypass", etype="switch", evalue="0")
         mqtt.req(ename="unloader_rotate", etype="switch", evalue="0")
+        mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
+        mqtt.req(ename="RFID_2", etype="text", evalue="99296465799940")
         time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
@@ -52,3 +56,7 @@ def test_get_status():
         AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", True)
         AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("bypass", False)
         AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("rotate", False)
+        AssertThat(r.json()["result"]["driver"]).ContainsItem("fio", "Школенко Дмитрий Сергеевич")
+        AssertThat(r.json()["result"]["driver"]).ContainsItem("card_uid", "94594156156156")
+        AssertThat(r.json()["result"]["guest"]).ContainsItem("brand", "КАМАЗ 55102")
+        AssertThat(r.json()["result"]["guest"]).ContainsItem("card_uid", "99296465799940")

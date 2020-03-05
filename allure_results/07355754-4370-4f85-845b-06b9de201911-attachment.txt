@@ -1,0 +1,2 @@
+[32mINFO    [0m test_host_guest_accept_unload_remove:test_host_guest_accept_unload_remove.py:20 {'result': {'done': False}}
+[32mINFO    [0m test_host_guest_accept_unload_remove:test_host_guest_accept_unload_remove.py:21 200

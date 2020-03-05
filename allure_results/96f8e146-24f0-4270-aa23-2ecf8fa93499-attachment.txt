@@ -1,0 +1,2 @@
+[32mINFO    [0m test_get_neighbors:test_get_neighbors.py:25 {'result': {'C010': [{'type': 'C010', 'guest_device_id': None, 'bunker_percentage': 0, 'distance': None, 'device_id': 'AC35EE2644A7', 'reg_num': '7227ЕЕ31', 'state': -1, 'driver': None, 'brand': 'МТЗ Беларус 82.1', 'host': '192.168.201.2:9194'}]}}
+[32mINFO    [0m test_get_neighbors:test_get_neighbors.py:26 200
