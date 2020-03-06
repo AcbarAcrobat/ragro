@@ -29,3 +29,4 @@ def test_case_bunker_sap_id():
     with allure.step("Assert Contains Item"):
         with allure.step("sap_id should be 🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸"):
             AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("sap_id", "🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸")
+            time.sleep(1)

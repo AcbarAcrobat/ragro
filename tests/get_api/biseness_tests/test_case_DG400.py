@@ -17,10 +17,9 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_case_bunker_sap_id():
+def test_case_dg400():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": -0, "units": "KG"}))
-        # we wait DEVICE_ID in response
+        mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": 0.8, "units": "KG"}))
         time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
@@ -29,4 +28,4 @@ def test_case_bunker_sap_id():
         LOGGER.info(r.status_code)
     with allure.step("Assert Contains Item"):
         with allure.step("DG400 should have net 7891"):
-            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("weight", -0)
+            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("weight", 0.8)
