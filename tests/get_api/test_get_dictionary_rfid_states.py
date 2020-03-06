@@ -7,11 +7,12 @@ from jsonschema import validate
 import logging
 
 
-LOGGER = logging.getLogger(__name__)
 T = TestData()
 LOGGER = logging.getLogger(__name__)
 
 
+@allure.story("Test case for validate json response and values in it")
+@allure.feature("We get a dictionary with four values")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/dictionary/rfid_states")
 @allure.title("Positive get request")

@@ -1,5 +1,3 @@
-import logging
-
 import allure
 import requests
 from truth.truth import AssertThat

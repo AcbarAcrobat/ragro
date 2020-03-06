@@ -12,18 +12,21 @@ T = TestData()
 LOGGER = logging.getLogger(__name__)
 
 
-@allure.feature("Test case check biseness logic")
-@allure.story("Send to mqtt variable and wait response")
+@allure.feature("Test case")
+@allure.story("Change DG400 and check")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_get_status():
+def test_case_bunker_sap_id():
+    with allure.step("Send requests to the MQTT"):
+        mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": -0, "units": "KG"}))
+        # we wait DEVICE_ID in response
+        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
-    with allure.step("Assert status code is 200"):
-        AssertThat(r.status_code).IsEqualTo(200)
-    # with allure.step("Validate server response according to our scheme"):
-    #     validate(instance=r.json(), schema=schema)
+    with allure.step("Assert Contains Item"):
+        with allure.step("DG400 should have net 7891"):
+            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("weight", -0)

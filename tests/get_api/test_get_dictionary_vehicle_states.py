@@ -1,4 +1,3 @@
-import logging
 import allure
 import requests
 from truth.truth import AssertThat
@@ -12,6 +11,7 @@ LOGGER = logging.getLogger(__name__)
 T = TestData()
 
 
+@allure.story("Test case for validate json in response")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/dictionary/vehicle_states")
 @allure.title("Positive get request")
@@ -30,4 +30,13 @@ def test_get_dictionary_vehicle_states():
         AssertThat(r.json()["result"]).ContainsItem("IDLE_ROTATE", 7)
         AssertThat(r.json()["result"]).ContainsItem("WAITING_FOR_SECURITY", -3)
         AssertThat(r.json()["result"]).ContainsItem("NO_IGNITION", -2)
-        AssertThat(r.json()["result"]).ContainsItem("HOST_START_UNLOAD", 2)
+        AssertThat(r.json()["result"]).ContainsItem("GUEST_START_UNLOAD", 6)
+        AssertThat(r.json()["result"]).ContainsItem("HOST_ACCEPT_UNLOAD", 1)
+        AssertThat(r.json()["result"]).ContainsItem("HOST_SEARCH_UNLOAD_PERSONALLY", 4)
+        AssertThat(r.json()["result"]).ContainsItem("WAITING_FOR_INIT_END", -4)
+        AssertThat(r.json()["result"]).ContainsItem("DEFAULT", 0)
+        AssertThat(r.json()["result"]).ContainsItem("NO_DRIVER", -1)
+        AssertThat(r.json()["result"]).ContainsItem("GUEST_ACCEPT_UNLOAD", 5)
+        AssertThat(r.json()["result"]).ContainsItem("HOST_SEARCH_UNLOAD", 3)
+        AssertThat(r.json()["result"]).ContainsItem("TURN_OFF", -5)
+
