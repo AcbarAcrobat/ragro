@@ -33,7 +33,6 @@ def default_condition():
         mqtt.req(ename="BUNKER_SAP_ID", etype="text", evalue="0")
         mqtt.req(ename="DEVICE_ID", etype="text", evalue="0")
         mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": 0, "units": "KG"}))
-        # mqtt.req(ename="GPSD_TPV", etype="json", evalue="0")
         mqtt.req(ename="LAMP_1", etype="switch", evalue="0")
         mqtt.req(ename="LAMP_2", etype="switch", evalue="0")
         mqtt.req(ename="ModBUS_OK", etype="switch", evalue="0")
