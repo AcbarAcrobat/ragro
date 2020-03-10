@@ -12,20 +12,25 @@ LOGGER = logging.getLogger(__name__)
 
 
 @allure.feature("Test case")
-@allure.story("Change RFID_1 and check")
+@allure.story("Change unloader_bypass and check state")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_case_RFID_1():
+def test_case_waiting_for_security():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
-        # we wait DEVICE_ID in response
-        time.sleep(1)
+        mqtt.req(ename="unloader_bypass", etype="switch", evalue="1")  # we wait state -3 in response
     with allure.step("Send GET request to the server"):
+        time.sleep(4)
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
     with allure.step("Assert Contains Item"):
-        with allure.step("RFID_1 should have fio Школенко Дмитрий Сергеевич"):
-            AssertThat(r.json()["result"]["driver"]).ContainsItem("fio", "Школенко Дмитрий Сергеевич")
+        with allure.step("State should be -3"):
+            AssertThat(r.json()["result"]).ContainsItem("state", -3)
+    # with allure.step("Back to default contidion"):
+    #     mqtt.req(ename="SIRENA", etype="switch", evalue="0")
+    #     mqtt.req(ename="RFID_1", etype="text", evalue="No Card")
+    #     mqtt.req(ename="RFID_2", etype="text", evalue="No Card")
+    #     mqtt.req(ename="unloader_bypass", etype="switch", evalue="0")
