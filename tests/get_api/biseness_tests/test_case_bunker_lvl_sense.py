@@ -1,5 +1,4 @@
 import json
-import time
 import requests
 import allure
 from truth.truth import AssertThat
@@ -25,7 +24,6 @@ def test_case_bunker_lvl_sense():
                                                                              "4": True,
                                                                              "5": False
                                                                              }))
-        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):

@@ -31,5 +31,4 @@ def test_case_loader_rotate():
         LOGGER.info(r.status_code)
     with allure.step("Assert Contains Item"):
         with allure.step("reaper should have rotate True"):
-            time.sleep(1)
             AssertThat(r.json()["result"]["mechanization"]["reaper"]).ContainsItem("rotate", True)

@@ -23,7 +23,6 @@ def test_send_gpsd_tpv():
                                     "lat": 46.498204497, "lon": 7.568061439, "alt": 1327.689,
                                     "epx": 15.319, "epy": 17.054, "epv": 124.484, "track": 10.3797,
                                     "speed": 0.091, "climb": -0.085, "eps": 34.11, "mode": 3}))
-        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):

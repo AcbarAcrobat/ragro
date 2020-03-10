@@ -20,7 +20,6 @@ LOGGER = logging.getLogger(__name__)
 def test_case_dg400():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": 0.8, "units": "KG"}))
-        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):

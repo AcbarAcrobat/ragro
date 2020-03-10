@@ -16,9 +16,10 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_case_unloader_by_pass():
+def test_case_no_driver():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="unloader_arm", etype="switch", evalue="1")
+        mqtt.req(ename="RFID_1", etype="text", evalue="No Card")
+        time.sleep(8)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):

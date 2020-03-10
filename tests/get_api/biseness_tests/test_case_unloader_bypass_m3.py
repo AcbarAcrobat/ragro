@@ -1,4 +1,3 @@
-import time
 import requests
 import allure
 from truth.truth import AssertThat
@@ -21,7 +20,6 @@ def test_case_unloader_by_pass():
         mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
         mqtt.req(ename="unloader_bypass", etype="switch", evalue="1")  # we wait state -3 in response
     with allure.step("Send GET request to the server"):
-        time.sleep(4)
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())

@@ -31,5 +31,3 @@ def test_case_unloader_arm():
             AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", False)
             with allure.step("Check state 0"):
                 AssertThat(r.json()["result"]).ContainsItem("state", 0)
-    # with allure.step("Change reaper condition to default"):
-    #     mqtt.req(ename="loader_rotate", etype="switch", evalue="0")
