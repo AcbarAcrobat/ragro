@@ -14,7 +14,7 @@ $ sudo dpkg -i allure_2.4.1~xenial_all.deb
 $ sudo apt-get install -f
 ```
 
-After that go to /dir/dir/abm_tests and create virtualenv
+After that go to /path_to/ragro and create virtualenv
 ```
 $ sudo python3 -m venv venv
 $ source venv/bin/activate
