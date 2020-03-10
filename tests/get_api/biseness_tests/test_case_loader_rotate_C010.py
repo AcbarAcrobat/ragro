@@ -7,7 +7,7 @@ from support.testdata import TestData
 import logging
 import tests.mqtt.send_data as mqtt
 import tests.get_api.biseness_tests.test_case_RFID_1 as tc
-import tests.get_api.biseness_tests.test_case_device_id as tdi
+import tests.get_api.biseness_tests.test_case_device_id_C010 as tdi
 
 
 
