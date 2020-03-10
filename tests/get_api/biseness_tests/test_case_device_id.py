@@ -24,6 +24,7 @@ def test_case_device_id():
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+        time.sleep(1)
     with allure.step("Assert Contains Item"):
         with allure.step("DEVICE_ID should be AC35EE2644F0"):
             AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644F0")
