@@ -11,19 +11,18 @@ LOGGER = logging.getLogger(__name__)
 
 
 @allure.feature("Test case")
-@allure.story("Change BUNKER_SAP_ID and check sap_id")
+@allure.story("Change DEVICE_ID and check")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_case_bunker_sap_id():
+def test_case_device_id():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="BUNKER_SAP_ID", etype="text", evalue='🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸')
-        # we wait sap_id in response
+        mqtt.req(ename="DEVICE_ID", etype="text", evalue='AC35EE2644F0')  # we wait DEVICE_ID in response
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
     with allure.step("Assert Contains Item"):
-        with allure.step("sap_id should be 🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸"):
-            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("sap_id", "🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸")
+        with allure.step("DEVICE_ID should be AC35EE2644F0"):
+            AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644F0")

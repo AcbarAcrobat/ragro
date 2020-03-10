@@ -4,7 +4,7 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
 import tests.mqtt.send_data as mqtt
-import tests.get_api.biseness_tests.test_case_device_id as tdi
+import tests.get_api.biseness_tests.test_case_device_id_C010 as tdi
 
 
 T = TestData()
@@ -31,5 +31,3 @@ def test_case_unloader_arm():
             AssertThat(r.json()["result"]["mechanization"]["worm"]).ContainsItem("lock", False)
             with allure.step("Check state 0"):
                 AssertThat(r.json()["result"]).ContainsItem("state", 0)
-    # with allure.step("Change reaper condition to default"):
-    #     mqtt.req(ename="loader_rotate", etype="switch", evalue="0")

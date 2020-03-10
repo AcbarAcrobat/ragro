@@ -20,7 +20,6 @@ def test_case_RFID_1():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
         # we wait DEVICE_ID in response
-        time.sleep(1)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):

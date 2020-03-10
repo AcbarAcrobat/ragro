@@ -12,19 +12,20 @@ LOGGER = logging.getLogger(__name__)
 
 
 @allure.feature("Test case")
-@allure.story("Change DEVICE_ID and check")
+@allure.story("Change unloader_bypass and check state")
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-def test_case_device_id():
+def test_case_no_driver():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="DEVICE_ID", etype="text", evalue='AC35EE2644F0')  # we wait DEVICE_ID in response
+        mqtt.req(ename="RFID_1", etype="text", evalue="No Card")
+        time.sleep(8)
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
-        time.sleep(1)
     with allure.step("Assert Contains Item"):
-        with allure.step("DEVICE_ID should be AC35EE2644F0"):
-            AssertThat(r.json()["result"]).ContainsItem("device_id", "AC35EE2644F0")
+        with allure.step("State should be -1"):
+            AssertThat(r.json()["result"]).ContainsItem("state", -1)
+
