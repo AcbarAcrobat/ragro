@@ -16,6 +16,9 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
+# @allure.testlink('1-9', '1-9: bunker_level get/status')
+# @allure.testcase("1-9", '1-9: bunker_level get/status')
+@allure.testcase('1-9', '1-9: bunker_level get/status')
 def test_case_bunker_lvl():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="bunker_level", etype="value", evalue="999")
