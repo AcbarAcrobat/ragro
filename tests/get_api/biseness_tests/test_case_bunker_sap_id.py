@@ -15,6 +15,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
+@allure.testlink('1-2', '1-2: BUNKER_SAP_ID get/status')
 def test_case_bunker_sap_id():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="BUNKER_SAP_ID", etype="text", evalue='🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸')

@@ -16,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
+@allure.testlink('1-14', '1-14: unloader_arm get/status')
 def test_case_unloader_arm():
     with allure.step("Send requests to the MQTT"):
         tdi.test_case_device_id()

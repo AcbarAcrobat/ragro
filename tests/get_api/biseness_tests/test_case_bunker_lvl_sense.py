@@ -16,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
+@allure.testlink('1-10', '1-10: bunker_level_sens get/status')
 def test_case_bunker_lvl_sense():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": True,

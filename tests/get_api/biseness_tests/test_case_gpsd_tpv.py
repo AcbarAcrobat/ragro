@@ -16,6 +16,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
+@allure.testlink('1-5', '1-5: GPSD_TPV get/status')
 def test_send_gpsd_tpv():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="GPSD_TPV", etype="json",
