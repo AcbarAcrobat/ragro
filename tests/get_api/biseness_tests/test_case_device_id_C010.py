@@ -15,7 +15,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-@allure.testlink('1-3', '1-3: DEVICE_ID get/status')
+@allure.testcase('1-3', '1-3: DEVICE_ID get/status')
 def test_case_device_id():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="DEVICE_ID", etype="text", evalue='AC35EE2644F0')  # we wait DEVICE_ID in response

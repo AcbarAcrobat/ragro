@@ -16,7 +16,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-@allure.testlink('1-7', '1-7:200 RFID_1 get/status')
+@allure.testcase('1-7', '1-7:200 RFID_1 get/status')
 def test_case_RFID_1():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")

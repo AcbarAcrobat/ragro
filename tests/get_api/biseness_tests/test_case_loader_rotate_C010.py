@@ -20,7 +20,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("GET request")
 @allure.sub_suite("/get/status")
 @allure.title("Positive get request")
-@allure.testlink('1-13', '1-13: loader_rotate get/status')
+@allure.testcase('1-13', '1-13: loader_rotate get/status')
 def test_case_loader_rotate():
     with allure.step("Send requests to the MQTT"):
         mqtt.req(ename="DEVICE_ID", etype="text", evalue='AC35EE2644DA')
