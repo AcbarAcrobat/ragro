@@ -21,7 +21,7 @@ def test_guest_accept_unload():
     body = { "device_id": device_id }
 
     mqtt.req(ename="DEVICE_ID", etype="text", evalue=device_id)
-    mqtt.req(ename="bunker_level", etype="value", evalue="999")
+    mqtt.req(ename="bunker_level", etype="value", evalue="81")
 
     with allure.step("Принять запрос на разгрузку"):
         r = requests.post(url, json=body, headers=T.headers())
