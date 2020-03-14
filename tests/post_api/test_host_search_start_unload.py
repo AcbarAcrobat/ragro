@@ -3,6 +3,7 @@ import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
+import tests.get_api.biseness_tests.test_case_bunker_lvl as bunker
 
 
 T = TestData()
@@ -14,6 +15,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive post request")
 def test_host_search_start_unload():
     with allure.step("Send request to the server"):
+        bunker.test_case_bunker_lvl()
         r = requests.post(T.url() + "/host/search/start_unload", headers=T.headers())
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())

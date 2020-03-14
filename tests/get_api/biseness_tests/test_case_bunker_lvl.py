@@ -21,7 +21,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.testcase('1-9', '1-9: bunker_level get/status')
 def test_case_bunker_lvl():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="bunker_level", etype="value", evalue="999")
+        mqtt.req(ename="bunker_level", etype="value", evalue="81")
     with allure.step("Send GET request to the server"):
         r = requests.get(T.url() + "/get/status")
     with allure.step("LOGGER get info"):
@@ -29,4 +29,4 @@ def test_case_bunker_lvl():
         LOGGER.info(r.status_code)
     with allure.step("Assert Contains Item"):
         with allure.step("bunker_level should have value 999"):
-            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("percentage", 999)
+            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("percentage", 81)

@@ -12,7 +12,7 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("POST request")
 @allure.sub_suite("/guest/accept_unload")
 @allure.title("Positive post request")
-def test_search_start_unload_remove():
+def test_host_search_start_unload_remove():
     with allure.step("Send request to the server"):
         r = requests.post(T.url() + "/host/search/start_unload/remove", headers=T.headers())
     with allure.step("LOGGER get info"):
