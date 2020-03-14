@@ -14,16 +14,15 @@ LOGGER = logging.getLogger(__name__)
 @allure.parent_suite("POST request")
 @allure.suite('Guest')
 @allure.sub_suite("/guest/accept_unload")
-@allure.title("Принятия запроса на разгрузку по беспроводной идентификации")
-def test_guest_accept_unload():
+@allure.title("Начало выгрузки по буеспроводной идентификации (разблокирует шнек)")
+def test_guest_start_unload():
     device_id = "AC35EE26450B"
-    url = T.url85() + '/guest/accept_unload'
+    url = T.url85() + '/guest/start_unload'
     body = { "device_id": device_id }
 
     mqtt.req(ename="DEVICE_ID", etype="text", evalue=device_id)
-    mqtt.req(ename="bunker_level", etype="value", evalue="999")
 
-    with allure.step("Принять запрос на разгрузку"):
+    with allure.step("Начало выгрузки"):
         r = requests.post(url, json=body, headers=T.headers())
 
     LOGGER.debug(r.json())
