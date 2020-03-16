@@ -2,12 +2,9 @@ import allure
 import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
-import logging
+from support import test_data2 as TD
+from support import LOGGER
 import tests.get_api.biseness_tests.test_case_bunker_lvl as bunker
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
 
 
 @allure.parent_suite("POST request")
@@ -16,9 +13,11 @@ LOGGER = logging.getLogger(__name__)
 def test_host_search_start_unload():
     with allure.step("Send request to the server"):
         bunker.test_case_bunker_lvl()
-        r = requests.post(T.url() + "/host/search/start_unload", headers=T.headers())
+        r = requests.post(TD.url() + "/host/search/start_unload", headers=TD.headers())
+
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
