@@ -61,3 +61,4 @@ def default_state():
     time.sleep(1)
     yield
     default_condition()
+    time.sleep(1)

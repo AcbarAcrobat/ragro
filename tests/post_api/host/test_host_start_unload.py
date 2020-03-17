@@ -2,7 +2,7 @@ import allure
 import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
-from support import LOGGER
+from helper import LOGGER
 
 T = TestData()
 

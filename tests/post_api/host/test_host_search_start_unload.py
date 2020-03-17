@@ -3,8 +3,8 @@ import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
 from support import test_data2 as TD
-from support import LOGGER
-import tests.get_api.biseness_tests.test_case_bunker_lvl as bunker
+from helper import LOGGER
+import tests.get_api.business_tests.test_case_bunker_lvl as bunker
 
 
 @allure.parent_suite("POST request")
