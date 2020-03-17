@@ -1,3 +1,4 @@
+import time
 import requests
 import allure
 from truth.truth import AssertThat
@@ -14,9 +15,10 @@ import util.mqtt.send_data as mqtt
 def test_case_default_state():
     with allure.step("Send requests to the MQTT"):
 
-        mqtt.req83(ename="RFID_1", etype="text", evalue="777")  # we wait state 0 in response
         mqtt.req83(ename="RFID_1", etype="text", evalue="94594156156156")
         mqtt.req83(ename="unloader_bypass", etype="switch", evalue="1")
+        mqtt.req83(ename="RFID_2", etype="text", evalue="777")  # we wait state 0 in response
+        time.sleep(1)
 
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
