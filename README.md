@@ -32,3 +32,13 @@ Looks your report
 ```
 $ allure serve allure_results/
 ```
+
+Using pyenv-installer on Travis CI
+Travis itself uses pyenv and therefore PYENV_ROOT is set already. To make it work anyway the installation for pyenv-installer needs to look like this:
+
+```
+$ unset PYENV_ROOT
+$ curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
+$ export PATH="$HOME/.pyenv/bin:$PATH"
+$ pyenv install 3.5.2
+```
