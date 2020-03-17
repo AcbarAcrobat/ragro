@@ -26,12 +26,12 @@ def test_get_neighbors():
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
-    # with allure.step("LOGGER get info 85"):
-    #     LOGGER.info(r85.json())
-    # with allure.step("Assert status code is 200"):
-    #     AssertThat(r.status_code).IsEqualTo(200)
-    # with allure.step("Assert contains items in json response"):
-    #     AssertThat(r85.json()["result"]).ContainsKey("C010")
-    #     AssertThat(r85.json()["result"]["C010"][0]).ContainsItem("bunker_percentage", 999)
-    #     AssertThat(r85.json()["result"]["C010"][0]["driver"]).ContainsItem("fio", "Школенко Дмитрий Сергеевич")
+    with allure.step("LOGGER get info 85"):
+        LOGGER.info(r85.json())
+    with allure.step("Assert status code is 200"):
+        AssertThat(r.status_code).IsEqualTo(200)
+    with allure.step("Assert contains items in json response"):
+        AssertThat(r85.json()["result"]).ContainsKey("C010")
+        AssertThat(r85.json()["result"]["C010"][0]).ContainsItem("bunker_percentage", 999)
+        AssertThat(r85.json()["result"]["C010"][0]["driver"]).ContainsItem("fio", "Школенко Дмитрий Сергеевич")
 

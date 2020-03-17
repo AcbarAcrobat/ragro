@@ -1,4 +1,3 @@
-import time
 import requests
 import allure
 from truth.truth import AssertThat

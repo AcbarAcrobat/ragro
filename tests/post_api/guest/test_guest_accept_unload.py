@@ -1,13 +1,9 @@
 import allure
-import requests
 from truth.truth import AssertThat
-from support.testdata import TestData
 from support import test_data2 as TD
 from helper.rest import Post, Get
 from helper import LOGGER
-import logging
 import tests.mqtt.send_data as mqtt
-import time
 
 
 @allure.parent_suite("POST request")

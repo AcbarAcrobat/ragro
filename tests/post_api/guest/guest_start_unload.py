@@ -4,7 +4,6 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
 import tests.mqtt.send_data as mqtt
-import time
 
 
 T = TestData()
