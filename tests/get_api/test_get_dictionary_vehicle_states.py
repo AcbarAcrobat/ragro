@@ -14,13 +14,17 @@ from helper import LOGGER
 def test_get_dictionary_vehicle_states():
     with allure.step("Send request to the server"):
         r = requests.get(TD.url83() + "/get/dictionary/vehicle_states")
+
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
+
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
+
     with allure.step("Assert Contains Items in r.json()['result']"):
         AssertThat(r.json()["result"]).ContainsItem("HOST_SEARCH_UNLOAD_PERSONALLY", 4)
         AssertThat(r.json()["result"]).ContainsItem("IDLE_ROTATE", 7)

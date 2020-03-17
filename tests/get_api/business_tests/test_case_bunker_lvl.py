@@ -1,6 +1,6 @@
 import allure
 from truth.truth import AssertThat
-import tests.mqtt.send_data as mqtt
+import util.mqtt.send_data as mqtt
 import support.test_data2 as TD
 from helper import LOGGER
 from helper.rest import Get
