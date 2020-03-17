@@ -2,8 +2,8 @@ from paho.mqtt import publish
 from support import test_data2 as TD
 
 
-def req(ename, etype, evalue):
-    host = TD.murl()
+def req83(ename, etype, evalue):
+    host = TD.murl83()
     main_path = '/devices/vehicle/controls/'
     # need to be sent if first msg for entity. Wont break anything if will be send all the time
     publish.single(main_path + ename + "/meta/type", etype, hostname=host)

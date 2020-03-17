@@ -36,8 +36,8 @@ class Request:
         self._parts = []
         self._body = { }
 
-    def add(self, url):
-        self._parts.append(url)
+    def add(self, url83):
+        self._parts.append(url83)
 
 
 class Get(Builder):
