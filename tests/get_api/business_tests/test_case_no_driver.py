@@ -16,11 +16,14 @@ def test_case_no_driver():
     with allure.step("Send requests to the MQTT"):
         mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
         time.sleep(8)
+
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
+        
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+
     with allure.step("Assert Contains Item"):
         with allure.step("State should be -1"):
             AssertThat(r.json()["result"]).ContainsItem("state", -1)
