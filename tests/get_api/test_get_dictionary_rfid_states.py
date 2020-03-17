@@ -1,14 +1,10 @@
 import allure
 import requests
 from truth.truth import AssertThat
-from support.testdata import TestData
 from support.schema.dictionary_rdind_states_schema import schema
 from jsonschema import validate
-import logging
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
+import support.test_data2 as TD
+from helper import LOGGER
 
 
 @allure.story("Test case for validate json response and values in it")
@@ -18,14 +14,18 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Positive get request")
 def test_get_dictionary_rfid_states():
     with allure.step("Send request to the server"):
-        r = requests.get(T.url() + "/get/dictionary/rfid_states")
+        r = requests.get(TD.url83() + "/get/dictionary/rfid_states")
+
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
+
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
+
     with allure.step("Assert Contains Items"):
         AssertThat(r.json()["result"]).ContainsItem("BAD_CARD", 2)
         AssertThat(r.json()["result"]).ContainsItem("AUTH_OK", 3)

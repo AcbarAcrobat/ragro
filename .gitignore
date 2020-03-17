@@ -13,4 +13,5 @@
 **/__pycache_
 allure_results
 __pycache__
+.vscode
 .python-version

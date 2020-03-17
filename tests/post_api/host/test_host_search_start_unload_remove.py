@@ -1,20 +1,16 @@
 import allure
 import requests
 from truth.truth import AssertThat
-from support.testdata import TestData
-import logging
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
+import support.test_data2 as TD
+from helper import LOGGER
 
 
 @allure.parent_suite("POST request")
 @allure.sub_suite("/guest/accept_unload")
 @allure.title("Positive post request")
-def test_search_start_unload_remove():
+def test_host_search_start_unload_remove():
     with allure.step("Send request to the server"):
-        r = requests.post(T.url() + "/host/search/start_unload/remove", headers=T.headers())
+        r = requests.post(TD.url83() + "/host/search/start_unload/remove", headers=TD.headers())
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

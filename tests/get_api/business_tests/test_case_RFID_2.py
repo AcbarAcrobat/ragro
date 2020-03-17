@@ -1,14 +1,9 @@
-import time
 import requests
 import allure
 from truth.truth import AssertThat
-from support.testdata import TestData
-import logging
+import support.test_data2 as TD
+from helper import LOGGER
 import tests.mqtt.send_data as mqtt
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
 
 
 @allure.feature("Test case")
@@ -19,9 +14,9 @@ LOGGER = logging.getLogger(__name__)
 @allure.testcase('1-8', '1-8: RFID_2 get/status')
 def test_case_RFID_2():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="RFID_2", etype="text", evalue="99296465799940")
+        mqtt.req83(ename="RFID_2", etype="text", evalue="99296465799940")
     with allure.step("Send GET request to the server"):
-        r = requests.get(T.url() + "/get/status")
+        r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
