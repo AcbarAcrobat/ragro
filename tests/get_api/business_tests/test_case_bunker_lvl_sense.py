@@ -23,7 +23,7 @@ def test_case_bunker_lvl_sense():
                                                                                }))
     with allure.step("Send GET request to the server"):
         # r = requests.get(TD.url83() + "/get/status")
-        req = Get(TD.url83().get.status.perf())
+        req = Get(TD.url83()).get.status.perf())
     with allure.step("LOGGER get info"):
         LOGGER.info(req.json())
         LOGGER.info(req.status_code)
