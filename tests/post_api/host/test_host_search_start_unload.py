@@ -3,7 +3,7 @@ import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
 import logging
-import tests.get_api.biseness_tests.test_case_bunker_lvl as bunker
+import tests.get_api.biseness_logic.test_case_bunker_lvl as bunker
 
 
 T = TestData()

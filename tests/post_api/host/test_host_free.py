@@ -1,7 +1,5 @@
 import allure
-import requests
 from truth.truth import AssertThat
-from support.testdata import TestData
 import support.test_data2 as TD
 from helper.rest import Post
 from helper import LOGGER
@@ -12,7 +10,7 @@ from helper import LOGGER
 @allure.title("Positive post request")
 def test_host_free():
     with allure.step("Send request to the server"):
-        req = Post(TD.url()).host.free.perf()
+        req = Post(TD.url83()).host.free.perf()
 
     with allure.step("LOGGER get info"):
         LOGGER.info(req.json())
