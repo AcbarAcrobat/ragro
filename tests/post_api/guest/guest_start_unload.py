@@ -15,7 +15,7 @@ def test_guest_start_unload():
     url = TD.url85() + '/guest/start_unload'
     body = { "device_id": device_id }
 
-    mqtt.req(ename="DEVICE_ID", etype="text", evalue=device_id)
+    mqtt.req83(ename="DEVICE_ID", etype="text", evalue=device_id)
 
     with allure.step("Начало выгрузки"):
         r = requests.post(url, json=body, headers=TD.headers())

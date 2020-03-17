@@ -15,12 +15,12 @@ import tests.mqtt.send_data as mqtt
 @allure.testcase('1-10', '1-10: bunker_level_sens get/status')
 def test_case_bunker_lvl_sense():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": True,
+        mqtt.req83(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": True,
                                                                              "2": False,
                                                                              "3": False,
                                                                              "4": True,
                                                                              "5": False
-                                                                             }))
+                                                                               }))
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):

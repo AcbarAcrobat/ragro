@@ -12,9 +12,9 @@ from helper import LOGGER
 @allure.title("Positive get request")
 def test_get_neighbors():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="DEVICE_ID", etype="text", evalue="AC35EE2644F0")
-        mqtt.req(ename="bunker_level", etype="value", evalue="999")
-        mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
+        mqtt.req83(ename="DEVICE_ID", etype="text", evalue="AC35EE2644F0")
+        mqtt.req83(ename="bunker_level", etype="value", evalue="999")
+        mqtt.req83(ename="RFID_1", etype="text", evalue="94594156156156")
         time.sleep(2)
     with allure.step("Send request to the server"):
         r = requests.get(TD.url83() + "/get/neighbors")

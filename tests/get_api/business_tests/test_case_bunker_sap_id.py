@@ -14,7 +14,7 @@ import tests.mqtt.send_data as mqtt
 @allure.testcase('1-2', '1-2: BUNKER_SAP_ID get/status')
 def test_case_bunker_sap_id():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="BUNKER_SAP_ID", etype="text", evalue='🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸')
+        mqtt.req83(ename="BUNKER_SAP_ID", etype="text", evalue='🇺🇸🇷🇺🇸 🇦🇫🇦🇲🇸')
         # we wait sap_id in response
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")

@@ -14,8 +14,8 @@ import tests.mqtt.send_data as mqtt
 @allure.testcase('1-15', '1-15: unloader_bypass get/status')
 def test_case_unloader_by_pass():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
-        mqtt.req(ename="unloader_bypass", etype="switch", evalue="1")  # we wait state -3 in response
+        mqtt.req83(ename="RFID_1", etype="text", evalue="94594156156156")
+        mqtt.req83(ename="unloader_bypass", etype="switch", evalue="1")  # we wait state -3 in response
 
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")

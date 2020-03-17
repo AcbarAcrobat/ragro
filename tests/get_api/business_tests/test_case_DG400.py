@@ -15,7 +15,7 @@ import tests.mqtt.send_data as mqtt
 @allure.testcase('1-4', '1-4: DG400 get/status')
 def test_case_dg400():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="DG400", etype="json", evalue=json.dumps({"net": 0.8, "units": "KG"}))
+        mqtt.req83(ename="DG400", etype="json", evalue=json.dumps({"net": 0.8, "units": "KG"}))
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):

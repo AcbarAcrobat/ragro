@@ -14,7 +14,7 @@ import tests.mqtt.send_data as mqtt
 @allure.testcase('1-3', '1-3: DEVICE_ID get/status')
 def test_case_device_id():
     with allure.step("Send requests to the MQTT"):
-        mqtt.req(ename="DEVICE_ID", etype="text", evalue='AC35EE2644F0')  # we wait DEVICE_ID in response
+        mqtt.req83(ename="DEVICE_ID", etype="text", evalue='AC35EE2644F0')  # we wait DEVICE_ID in response
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):
