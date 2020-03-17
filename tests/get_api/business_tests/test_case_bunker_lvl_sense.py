@@ -4,6 +4,7 @@ import allure
 from truth.truth import AssertThat
 import support.test_data2 as TD
 from helper import LOGGER
+from helper.rest import Get
 import tests.mqtt.send_data as mqtt
 
 
@@ -22,13 +23,14 @@ def test_case_bunker_lvl_sense():
                                                                              "5": False
                                                                                }))
     with allure.step("Send GET request to the server"):
-        r = requests.get(TD.url83() + "/get/status")
+        # r = requests.get(TD.url83() + "/get/status")
+        req = Get(TD.url83().get.status.perf())
     with allure.step("LOGGER get info"):
-        LOGGER.info(r.json())
-        LOGGER.info(r.status_code)
+        LOGGER.info(req.json())
+        LOGGER.info(req.status_code)
     with allure.step("Assert Contains Item"):
         with allure.step("bunker_level_sens should have values True, False, False, True, False"):
-            AssertThat(r.json()["result"]["mechanization"]["bunker"]).ContainsItem("sense", {"1": True,
+            AssertThat(req.json()["result"]["mechanization"]["bunker"]).ContainsItem("sense", {"1": True,
                                                                                              "2": False,
                                                                                              "3": False,
                                                                                              "4": True,
