@@ -88,5 +88,4 @@ def default_state():
     time.sleep(1)
     yield
     default_condition83()
-    default_condition85()
     time.sleep(1)
