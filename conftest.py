@@ -73,14 +73,14 @@ def default_condition85():
                                                                              "3": False,
                                                                              "4": False,
                                                                              "5": False}))
-        mqtt.req83(ename="loader_freq", etype="value", evalue="0")
-        mqtt.req83(ename="loader_rotate", etype="switch", evalue="0")
-        mqtt.req83(ename="unloader_arm", etype="switch", evalue="0")
-        mqtt.req83(ename="unloader_bypass", etype="switch", evalue="0")
-        mqtt.req83(ename="unloader_freq", etype="value", evalue="0")
-        mqtt.req83(ename="unloader_rotate", etype="switch", evalue="0")
-        mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
-        mqtt.req83(ename="RFID_2", etype="text", evalue="No Card")
+        mqtt.req85(ename="loader_freq", etype="value", evalue="0")
+        mqtt.req85(ename="loader_rotate", etype="switch", evalue="0")
+        mqtt.req85(ename="unloader_arm", etype="switch", evalue="0")
+        mqtt.req85(ename="unloader_bypass", etype="switch", evalue="0")
+        mqtt.req85(ename="unloader_freq", etype="value", evalue="0")
+        mqtt.req85(ename="unloader_rotate", etype="switch", evalue="0")
+        mqtt.req85(ename="RFID_1", etype="text", evalue="No Card")
+        mqtt.req85(ename="RFID_2", etype="text", evalue="No Card")
 
 
 @pytest.fixture(scope="function", autouse=True)
