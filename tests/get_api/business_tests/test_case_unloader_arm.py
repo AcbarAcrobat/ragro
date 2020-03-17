@@ -3,7 +3,7 @@ import allure
 from truth.truth import AssertThat
 import support.test_data2 as TD
 from helper import LOGGER
-import tests.mqtt.send_data as mqtt
+import util.mqtt.send_data as mqtt
 import tests.get_api.business_tests.test_case_device_id_C010 as tdi
 
 

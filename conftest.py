@@ -1,6 +1,6 @@
 import allure
 import json
-import tests.mqtt.send_data as mqtt
+import util.mqtt.send_data as mqtt
 import pytest
 import time
 
@@ -42,10 +42,10 @@ def default_condition83():
         mqtt.req83(ename="status_request", etype="switch", evalue="0")
         mqtt.req83(ename="bunker_level", etype="value", evalue="0")
         mqtt.req83(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": False,
-                                                                             "2": False,
-                                                                             "3": False,
-                                                                             "4": False,
-                                                                             "5": False}))
+                                                                               "2": False,
+                                                                               "3": False,
+                                                                               "4": False,
+                                                                               "5": False}))
         mqtt.req83(ename="loader_freq", etype="value", evalue="0")
         mqtt.req83(ename="loader_rotate", etype="switch", evalue="0")
         mqtt.req83(ename="unloader_arm", etype="switch", evalue="0")
@@ -54,6 +54,7 @@ def default_condition83():
         mqtt.req83(ename="unloader_rotate", etype="switch", evalue="0")
         mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
         mqtt.req83(ename="RFID_2", etype="text", evalue="No Card")
+
 
 def default_condition85():
     with allure.step("Send requests to the MQTT85"):
@@ -69,10 +70,11 @@ def default_condition85():
         mqtt.req85(ename="status_request", etype="switch", evalue="0")
         mqtt.req85(ename="bunker_level", etype="value", evalue="0")
         mqtt.req85(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": False,
-                                                                             "2": False,
-                                                                             "3": False,
-                                                                             "4": False,
-                                                                             "5": False}))
+                                                                               "2": False,
+                                                                               "3": False,
+                                                                               "4": False,
+                                                                               "5": False}))
+
         mqtt.req85(ename="loader_freq", etype="value", evalue="0")
         mqtt.req85(ename="loader_rotate", etype="switch", evalue="0")
         mqtt.req85(ename="unloader_arm", etype="switch", evalue="0")
@@ -88,5 +90,4 @@ def default_state():
     time.sleep(1)
     yield
     default_condition83()
-    default_condition85()
     time.sleep(1)

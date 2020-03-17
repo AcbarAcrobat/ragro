@@ -13,16 +13,20 @@ from helper import LOGGER
 def test_get_dictionary_vehicle_types():
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/dictionary/vehicle_types")
+
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
+
     with allure.step("Assert status code is 200"):
         AssertThat(r.status_code).IsEqualTo(200)
+
     with allure.step("Assert Contsins Items in r.json()[result]"):
         AssertThat(r.json()["result"]).ContainsItem("BEETROOT_HARVESTER", "C030")
         AssertThat(r.json()["result"]).ContainsItem("TRANSPORTER", "C010")
         AssertThat(r.json()["result"]).ContainsItem("REFUELLER", "T090")
         AssertThat(r.json()["result"]).ContainsItem("HARVESTER", "C020")
         AssertThat(r.json()["result"]).ContainsItem("BEETROOT_TRANSPORTER", "C070")
+
     with allure.step("Validate server response according to our scheme"):
         validate(instance=r.json(), schema=schema)
