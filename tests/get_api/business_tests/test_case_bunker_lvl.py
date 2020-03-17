@@ -1,13 +1,10 @@
 import requests
 import allure
 from truth.truth import AssertThat
-from support.testdata import TestData
 import logging
 import tests.mqtt.send_data as mqtt
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
+import support.test_data2 as TD
+from helper import LOGGER
 
 
 @allure.feature("Test case")
@@ -21,7 +18,7 @@ def test_case_bunker_lvl():
         mqtt.req(ename="bunker_level", etype="value", evalue="81")
 
     with allure.step("Send GET request to the server"):
-        r = requests.get(T.url() + "/get/status")
+        r = requests.get(TD.url83() + "/get/status")
 
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())

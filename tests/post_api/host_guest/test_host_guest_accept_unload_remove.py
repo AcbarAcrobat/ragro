@@ -10,16 +10,8 @@ from helper import LOGGER
 @allure.title("Positive post request")
 def test_host_guest_accept_unload_remove():
     with allure.step("Send request to the server"):
-<<<<<<< HEAD
-        req = Post(TD.url()).host.guest.accept_unload.remove.body(device_id='15').perf()
-=======
-        # r = requests.post((T.url() + "/host/guest/accept_unload/remove"), headers=T.headers(),
-        #                   json={"device_id": "15"})
         req = Post(TD.url83()).host.guest.accept_unload.remove.body(device_id='15').perf()
-<<<<<<< HEAD
->>>>>>> feature/tests
-=======
->>>>>>> feature/tests
+
 
     with allure.step("LOGGER get info"):
         LOGGER.info(req.json())

@@ -19,15 +19,15 @@ def test_guest_accept_unload():
     mqtt.req(ename="bunker_level", etype="value", evalue="81")
 
 
-    req = Post(TD.url()).host.search.start_unload.perf()
-    LOGGER.debug('\n*** host.search.start_unload :: ' + str(req.json()))
+    req = Post(TD.url83()).host.search.start_unload.perf()
+    LOGGER.debug(r'\n*** host.search.start_unload :: ' + str(req.json()))
 
 
     mqtt.req(ename="unloader_bypass", etype="switch", evalue="1")
-    req = Get(TD.url()).get.status.perf()
-    LOGGER.debug('\n*** get.status ::' + str(req.json())) # state=-3, bypass=True
+    req = Get(TD.url83()).get.status.perf()
+    LOGGER.debug(r'\n*** get.status ::' + str(req.json())) # state=-3, bypass=True
 
 
     req = Post(TD.url85()).guest.accept_unload.body(device_id=device_id).perf()
     mqtt.req85(ename="RFID_2", etype="text", evalue="777")
-    LOGGER.debug('\n*** guest.accept_unload ::' + str(req.json()))
+    LOGGER.debug(r'\n*** guest.accept_unload ::' + str(req.json()))

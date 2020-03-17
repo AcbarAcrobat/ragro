@@ -3,12 +3,8 @@ import requests
 from truth.truth import AssertThat
 from jsonschema import validate
 from support.schema.dictionary_vehicle_states_schema import schema
-from support.testdata import TestData
-import logging
-
-
-LOGGER = logging.getLogger(__name__)
-T = TestData()
+import support.test_data2 as TD
+from helper import LOGGER
 
 
 @allure.story("Test case for validate json in response")
@@ -17,7 +13,7 @@ T = TestData()
 @allure.title("Positive get request")
 def test_get_dictionary_vehicle_states():
     with allure.step("Send request to the server"):
-        r = requests.get(T.url() + "/get/dictionary/vehicle_states")
+        r = requests.get(TD.url83() + "/get/dictionary/vehicle_states")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

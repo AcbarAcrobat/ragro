@@ -2,12 +2,9 @@ import json
 import requests
 import allure
 from truth.truth import AssertThat
-from support.testdata import TestData
-import logging
+import support.test_data2 as TD
+from helper import LOGGER
 import tests.mqtt.send_data as mqtt
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
 
 
 @allure.feature("Test case")
@@ -24,7 +21,7 @@ def test_send_gpsd_tpv():
                                     "epx": 15.319, "epy": 17.054, "epv": 124.484, "track": 10.3797,
                                     "speed": 0.091, "climb": -0.085, "eps": 34.11, "mode": 3}))
     with allure.step("Send GET request to the server"):
-        r = requests.get(T.url() + "/get/status")
+        r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
