@@ -1,10 +1,11 @@
 import json
-import requests
 import allure
 from truth.truth import AssertThat
 import support.test_data2 as TD
 from helper import LOGGER
-import tests.mqtt.send_data as mqtt
+import requests
+from helper.rest import Get
+import util.mqtt.send_data as mqtt
 
 
 @allure.feature("Test case")
@@ -16,13 +17,14 @@ import tests.mqtt.send_data as mqtt
 def test_case_bunker_lvl_sense():
     with allure.step("Send requests to the MQTT"):
         mqtt.req83(ename="bunker_level_sens", etype="json", evalue=json.dumps({"1": True,
-                                                                             "2": False,
-                                                                             "3": False,
-                                                                             "4": True,
-                                                                             "5": False
+                                                                               "2": False,
+                                                                               "3": False,
+                                                                               "4": True,
+                                                                               "5": False
                                                                                }))
     with allure.step("Send GET request to the server"):
         r = requests.get(TD.url83() + "/get/status")
+        # req = Get(TD.url83().get.status.perf())
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)

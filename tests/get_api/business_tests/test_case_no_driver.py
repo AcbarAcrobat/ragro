@@ -4,7 +4,7 @@ import allure
 from truth.truth import AssertThat
 import support.test_data2 as TD
 from helper import LOGGER
-import tests.mqtt.send_data as mqtt
+import util.mqtt.send_data as mqtt
 
 
 @allure.feature("Test case")
@@ -17,7 +17,7 @@ def test_case_no_driver():
         mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
         time.sleep(8)
     with allure.step("Send GET request to the server"):
-        r = requests.get(TD.url() + "/get/status")
+        r = requests.get(TD.url83() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
