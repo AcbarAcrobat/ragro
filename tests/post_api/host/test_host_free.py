@@ -10,7 +10,7 @@ from helper import LOGGER
 @allure.title("Positive post request")
 def test_host_free():
     with allure.step("Send request to the server"):
-        req = Post(TD.url()).host.free.perf()
+        req = Post(TD.url83()).host.free.perf()
 
     with allure.step("LOGGER get info"):
         LOGGER.info(req.json())
