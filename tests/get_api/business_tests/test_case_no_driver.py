@@ -17,7 +17,7 @@ def test_case_no_driver():
         mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
         time.sleep(8)
     with allure.step("Send GET request to the server"):
-        r = requests.get(T.url() + "/get/status")
+        r = requests.get(TD.url() + "/get/status")
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
         LOGGER.info(r.status_code)
