@@ -1,5 +1,4 @@
 from paho.mqtt import publish
-from support.testdata import TestData
 from support import test_data2 as TD
 
 

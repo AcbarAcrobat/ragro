@@ -15,3 +15,6 @@ def url85():
 
 def headers():
     return {"Content-Type": "application/json"}
+
+def device_id(mech_type):
+    pass
