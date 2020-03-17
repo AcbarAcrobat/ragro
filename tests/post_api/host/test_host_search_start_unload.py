@@ -1,25 +1,18 @@
 import allure
 import requests
 from truth.truth import AssertThat
-from support.testdata import TestData
+from support import test_data2 as TD
 from helper import LOGGER
-
-T = TestData()
+import tests.get_api.business_tests.test_case_bunker_lvl as bunker
 
 
 @allure.parent_suite("POST request")
-@allure.sub_suite("/host/start_unload")
+@allure.sub_suite("/host/search/start_unload")
 @allure.title("Positive post request")
-def test_host_start_unload():
+def test_host_search_start_unload():
     with allure.step("Send request to the server"):
-        r = requests.post(
-            T.url() + "/host/start_unload",
-            headers=T.headers(),
-            json={
-                "device_id": "AC35EE2644F0",
-                "rfid": "94594156156156",
-                "reason": 1
-            })
+        bunker.test_case_bunker_lvl()
+        r = requests.post(TD.url() + "/host/search/start_unload", headers=TD.headers())
 
     with allure.step("LOGGER get info"):
         LOGGER.info(r.json())
