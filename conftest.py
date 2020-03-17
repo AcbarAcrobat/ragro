@@ -52,6 +52,7 @@ def default_condition83():
         mqtt.req83(ename="unloader_bypass", etype="switch", evalue="0")
         mqtt.req83(ename="unloader_freq", etype="value", evalue="0")
         mqtt.req83(ename="unloader_rotate", etype="switch", evalue="0")
+        time.sleep(1)
         mqtt.req83(ename="RFID_1", etype="text", evalue="No Card")
         mqtt.req83(ename="RFID_2", etype="text", evalue="No Card")
 
@@ -86,7 +87,7 @@ def default_condition85():
 
 @pytest.fixture(scope="function", autouse=True)
 def default_state():
-    time.sleep(2)
+    time.sleep(1)
     yield
     default_condition83()
     time.sleep(1)
