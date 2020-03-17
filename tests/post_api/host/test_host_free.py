@@ -4,7 +4,7 @@ from truth.truth import AssertThat
 from support.testdata import TestData
 import support.test_data2 as TD
 from helper.rest import Post
-from support import LOGGER
+from helper import LOGGER
 
 
 @allure.parent_suite("POST request")

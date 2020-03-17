@@ -2,13 +2,12 @@ import allure
 import requests
 from truth.truth import AssertThat
 from support.testdata import TestData
+from support import test_data2 as TD
+from helper.rest import Post, Get
+from helper import LOGGER
 import logging
 import tests.mqtt.send_data as mqtt
 import time
-
-
-T = TestData()
-LOGGER = logging.getLogger(__name__)
 
 
 @allure.parent_suite("POST request")
@@ -17,20 +16,22 @@ LOGGER = logging.getLogger(__name__)
 @allure.title("Принятия запроса на разгрузку по беспроводной идентификации")
 def test_guest_accept_unload():
     device_id = "AC35EE26450B"
-    url = T.url85() + '/guest/accept_unload'
-    body = { "device_id": device_id }
 
     mqtt.req(ename="DEVICE_ID", etype="text", evalue=device_id)
+    mqtt.req(ename="RFID_1", etype="text", evalue="94594156156156")
+    mqtt.req(ename="RFID_2", etype="text", evalue="777")
     mqtt.req(ename="bunker_level", etype="value", evalue="81")
 
-    with allure.step("Принять запрос на разгрузку"):
-        r = requests.post(url, json=body, headers=T.headers())
 
-    LOGGER.debug(r.json())
-    LOGGER.debug(r.status_code)
+    req = Post(TD.url()).host.search.start_unload.perf()
+    LOGGER.debug('\n*** host.search.start_unload :: ' + str(req.json()))
 
-    with allure.step("Assert status code is 200"):
-        AssertThat(r.status_code).IsEqualTo(200)
 
-    with allure.step('Validate schema'):
-        pass
+    mqtt.req(ename="unloader_bypass", etype="switch", evalue="1")
+    req = Get(TD.url()).get.status.perf()
+    LOGGER.debug('\n*** get.status ::' + str(req.json())) # state=-3, bypass=True
+
+
+    req = Post(TD.url85()).guest.accept_unload.body(device_id=device_id).perf()
+    mqtt.req85(ename="RFID_2", etype="text", evalue="777")
+    LOGGER.debug('\n*** guest.accept_unload ::' + str(req.json()))
