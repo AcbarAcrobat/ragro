@@ -44,3 +44,10 @@ def test_guest_start_unload():
         reason=1
     ).perf()
     LOGGER.debug(r'\n*** host.start_unload ::' + str(req.json()))
+
+
+    req = Post(TD.url83()).host.accept_unload.body(
+        device_id=device_id_1,
+        rfid='94594156156156',
+    ).perf()
+    LOGGER.debug(r'\n*** host.accept_unload ::' + str(req.json()))
